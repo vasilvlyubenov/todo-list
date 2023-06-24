@@ -6,7 +6,7 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  tasks: {_id: string, task: string}[] = [];
+  tasks: {_id: string, task: string, class: string}[] = [];
   error: string = '';
 
   formHandler(form: NgForm): void | string {
@@ -18,7 +18,7 @@ export class AppComponent {
       return this.error = 'Field cannot be empty!';
     }
     this.error = '';
-    this.tasks.push({_id, task});
+    this.tasks.push({_id, task, class: ''});
     form.reset();
   }
   
