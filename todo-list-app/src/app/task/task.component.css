@@ -1,5 +1,7 @@
 .todolist {
     padding: 20px 0;
+    max-height: 350px;
+    overflow: scroll;
 }
 
 .todolist h3 {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent {
-    tasks = ['task 1', 'task 2'];
+  @Input('tasksFromApp') tasks: {_id: string, task: string}[] = [];
+
+  onComplete(taskId: string) {
+    console.log(taskId);
+  };
+
+  onEdit(taskId: string) {
+    console.log(taskId);
+
+  };
+
+  onDelete(taskId: string) {
+    console.log(taskId);
+
+  };
 }

@@ -47,3 +47,10 @@
     padding: 0 2.6rem;
   }
 }
+
+
+.error-info {
+  margin-top: 20px;
+  color: #FF0000;
+  animation: hideError 0s ease-in 2s ;
+}

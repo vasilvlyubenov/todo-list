@@ -1,8 +1,11 @@
 <div class="todo">
   <div class="header">
     <h1>ToDo List</h1>
-    <input type="text" class="todo-input" placeholder="Add task...">
-    <button class="btn-add">Add</button>
+    <form #form="ngForm" (ngSubmit)="formHandler(form)">
+      <input type="text" class="todo-input" name="task" placeholder="Add task..." ngModel>
+      <button class="btn-add">Add</button>
+    </form>
   </div>
-  <app-task></app-task>
+  <p *ngIf="error" class="error-info">{{error}}</p>
+  <app-task [tasksFromApp]="tasks"></app-task>
 </div>
