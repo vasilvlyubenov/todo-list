@@ -1,0 +1,14 @@
+<div class="todolist">
+    <h3>List of Taks Todo:</h3>
+    <p class="error-info"></p>
+    <ul *ngIf="tasks.length > 0">
+        <li *ngFor="let task of tasks" data-id='test1'>{{task}}
+            <div class="tools">
+                <button class="complete"><i class="fas fa-check"></i></button>
+                <button class="edit">EDIT</button>
+                <button class="delete"><i class="fas fa-times"></i></button>
+            </div>
+        </li>
+    </ul>
+    <p *ngIf="tasks?.length === 0">There are no tasks yet!</p>
+</div>
