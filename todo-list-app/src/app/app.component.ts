@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
 import {NgForm} from '@angular/forms'; 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,8 +16,7 @@ export class AppComponent {
     const _id = Date.now().toString(36);
 
     if (!task) {
-      form.reset();
-      return this.error = 'Field cannot be empty!';
+      throw this.error = 'Field cannot be empty!';
     }
     this.error = '';
     this.tasks.push({_id, task, class: ''});

@@ -1,9 +1,12 @@
 <div class="popup">
     <h3>Edit your todo:</h3>
+    <p *ngIf="error" class="error-info">{{error}}</p>
     <div class="popup-body">
-        <p class="popup-info"></p>
-        <input type="text" class="popup-input" placeholder="Wprowadź nową treść zadania...">
-        <button class="popup-btn accept">Update</button>
-        <button class="popup-btn cancel">Cancel</button>
+        <p class="popup-info">Change task name:</p>
+        <form #form="ngForm" (ngSubmit)="onUpdate(form)">
+            <input type="text" class="popup-input" name="task" placeholder="Change task..." ngModel>
+            <button class="popup-btn accept" type="submit">Update</button>
+            <button class="popup-btn cancel" type="button" (click)="onCancel()">Cancel</button>
+        </form>
     </div>
 </div>

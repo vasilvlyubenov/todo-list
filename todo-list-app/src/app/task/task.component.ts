@@ -1,4 +1,6 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { EditTaskComponent } from '../edit-task/edit-task.component';
 
 @Component({
   selector: 'app-task',
@@ -6,6 +8,9 @@ import { Component, Input, OnChanges } from '@angular/core';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent {
+
+  constructor(private modalService: NgbModal) {}
+
   @Input('tasksFromApp') tasks: { _id: string, task: string, class: string }[] = [];
 
   onComplete(taskId: string): void {
@@ -21,8 +26,9 @@ export class TaskComponent {
   };
 
   onEdit(taskId: string): void {
-    console.log(taskId);
-
+    const editModal = this.modalService.open(EditTaskComponent);
+    editModal.componentInstance.taskId = taskId;
+    editModal.componentInstance.tasks = this.tasks;
   };
 
   onDelete(taskId: string): void {
